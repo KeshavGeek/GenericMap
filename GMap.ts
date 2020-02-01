@@ -22,6 +22,7 @@ export class GMap implements IMap {
     }
     addLayer(layer: ILayer): boolean {
         try {
+            layer.ref.setMap(this.ref);
             this.layers.push(layer);
             return true;
         }catch(e){

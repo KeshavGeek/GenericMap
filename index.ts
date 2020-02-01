@@ -1,9 +1,10 @@
-import {Map} from './Map';
+import { Map}  from './Map';
 import { GMap } from './GMap';
 import { MBMap } from './MBMap';
 import { MTMap } from './MTMap';
 import { OLMap } from './OLMap';
-import {BinLayerService} from './BinLayerService';
+import { BinLayerService } from './BinLayerService';
+import { GCircle } from './GCircle';
 import * as L from 'leaflet';
 
 class LeafletApplication {
@@ -27,6 +28,9 @@ class GoogleMapApplication {
             center: [51.505, -0.09],
             zoom: 13
         })
+        const gc = new GCircle();
+        const ref = gc.create({ latitude: 51.505, longitude: -0.09},{radius: 100});
+        map.addLayer(ref);
     }
 }
 
