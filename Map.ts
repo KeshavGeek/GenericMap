@@ -2,11 +2,12 @@ import {IMap} from './IMap';
 import * as L from 'leaflet';
 import { ILayer } from './ILayer';
 
-class Map implements IMap {
+export class Map implements IMap {
     ref: any;
     layers: Array<ILayer>;
-    create(id: string, options) {
+    create(id: string, options: any) {
         this.ref = L.map(id, options);
+        this.layers = [];
         return id;
     }    
     destroy(ref:any): boolean {

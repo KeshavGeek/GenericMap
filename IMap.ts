@@ -3,7 +3,7 @@ import { ILayer } from "./ILayer";
 export interface IMap {
     ref: any;
     layers: Array<ILayer>;
-    create(id: string, options): any;
+    create(id: string, options: any): any;
     destroy(ref: any): boolean;
     addLayer(layer: ILayer): boolean;
     removeLayer(layer: ILayer): boolean;

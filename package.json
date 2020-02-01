@@ -13,6 +13,10 @@
     "leaflet": "^1.6.0"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.5.8"
+    "@types/leaflet": "^1.5.8",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
