@@ -11,7 +11,7 @@ export class BinLayerService {
             let latitude = field[options.property.latitudeIndex];
             let longitude = field[options.property.longitudeIndex];
             let circle = new Circle();
-            let refx = circle.create({latitude, longitude},{radius: 10});
+            let refx = circle.create({ latitude, longitude }, { radius: options.visual.radius});
             layer.push(refx);
         });
         const circleLayerService = new CircleLayerService();

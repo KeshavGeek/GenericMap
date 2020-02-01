@@ -1,18 +1,16 @@
 import {IMap} from './IMap';
-import * as L from 'leaflet';
 import { ILayer } from './ILayer';
 
-export class Map implements IMap {
+export class GMap implements IMap {
     ref: any;
     layers: Array<ILayer>;
     create(id: string, options: any) {
-        this.ref = L.map(id, options);
+        this.ref = new google.maps.Map(document.getElementById(id), options);
         this.layers = [];
         return this.ref;
     }    
     destroy(ref:any): boolean {
         try{
-            this.ref.remove();
             return true;
         } catch(e){
             throw new Error(e);
@@ -23,7 +21,6 @@ export class Map implements IMap {
     }
     addLayer(layer: ILayer): boolean {
         try {
-            this.ref.addLayer(layer.ref);
             this.layers.push(layer);
             return true;
         }catch(e){
@@ -32,7 +29,6 @@ export class Map implements IMap {
     }
     removeLayer(layer: ILayer): boolean {
         try {
-            this.ref.removeLayer(layer.ref);
             return true;
         } catch(e) {
             throw new Error(e);
