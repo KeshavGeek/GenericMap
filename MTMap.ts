@@ -1,18 +1,19 @@
 import { IMap } from './IMap';
 import { ILayer } from './ILayer';
-import mapboxgl from 'mapbox-gl';
+var maptalks = require('maptalks/dist/maptalks.min.js');
 
-export class MBMap implements IMap {
+export class MTMap implements IMap {
     ref: any;
     layers: Array<ILayer>;
     create(id: string, options: any) {
-        options.center = [options.center[1], options.center[0]];
-        this.ref = new mapboxgl.Map({
-            accessToken: 'pk.eyJ1Ijoia2VzaGF2c2hhcm1hIiwiYSI6ImNqdHgzY3JiMjA0NWYzeXBuc3BzMW9ic3gifQ.g36F4_s9oNQloGmWw-gvWg',
-            style: 'mapbox://styles/mapbox/streets-v9',
-            center: options.center,
+        this.ref = new maptalks.Map(id, {
+            center: [options.center[1], options.center[0]],
             zoom: options.zoom,
-            container: id
+            baseLayer: new maptalks.TileLayer('base', {
+                urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+                subdomains: ['a', 'b', 'c', 'd'],
+                attribution: '&copy; <a href="http://osm.org">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/">CARTO</a>'
+            })
         });
         this.layers = [];
         return this.ref;
