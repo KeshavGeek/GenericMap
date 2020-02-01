@@ -3,22 +3,27 @@
 	<head>
 		<title>Generic Map</title>
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+		<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.css">-->
+		<link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
 		<style type="text/css">
-			#my-map,#my-map2 {
+			#my-map,#my-map2,#my-map3 {
 				width: 100%;
 				height: 300px;
 			}
-			#space {
+			.space {
 				height: 50px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="my-map"></div>
-		<div id="space"></div>
+		<div class="space"></div>
 		<div id="my-map2"></div>
+		<div class="space"></div>
+		<div id="my-map3"></div>
 		<script type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6-YU3i6gyZjwDGkCkdzG4fnI0zmSed8"></script>
+			<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.min.js"></script>-->
 		<script type="text/javascript" src="./dist/bundle.js"> </script>
 	</body>
 </html>

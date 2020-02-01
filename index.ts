@@ -1,5 +1,6 @@
 import {Map} from './Map';
 import { GMap } from './GMap';
+import { MBMap } from './MBMap';
 import {BinLayerService} from './BinLayerService';
 import * as L from 'leaflet';
 
@@ -21,13 +22,24 @@ class GoogleMapApplication {
     initialize() {
         let map = new GMap();
         map.create('my-map2',{
-            center: { lat: 51.505, lng: -0.09},
+            center: [51.505, -0.09],
             zoom: 13
         })
     }
 }
 
+class MapBoxMapApplication {
+    initialize() {
+        let map = new MBMap();
+        map.create('my-map3', {
+            center: [51.505, -0.09],
+            zoom: 13
+        })
+    }
+}
 const app = new LeafletApplication();
 app.initialize();
 const app2 = new GoogleMapApplication();
 app2.initialize();
+const app3 = new MapBoxMapApplication();
+app3.initialize();
