@@ -2,6 +2,7 @@ import {Map} from './Map';
 import { GMap } from './GMap';
 import { MBMap } from './MBMap';
 import { MTMap } from './MTMap';
+import { OLMap } from './OLMap';
 import {BinLayerService} from './BinLayerService';
 import * as L from 'leaflet';
 
@@ -49,6 +50,16 @@ class MapTalksMapApplication {
     }
 }
 
+class OpenLayersMapApplication {
+    initialize() {
+        let map = new OLMap();
+        map.create('my-map5', {
+            center: [51.505, -0.09],
+            zoom: 13
+        })
+    }
+}
+
 const app = new LeafletApplication();
 app.initialize();
 const app2 = new GoogleMapApplication();
@@ -57,3 +68,5 @@ const app3 = new MapBoxMapApplication();
 app3.initialize();
 const app4 = new MapTalksMapApplication();
 app4.initialize();
+const app5 = new OpenLayersMapApplication();
+app5.initialize();
