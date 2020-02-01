@@ -17,7 +17,6 @@ class BinLayerService {
         const circleLayerService = new CircleLayerService();
         const ref = circleLayerService.createLayer(layer);
         this.ref = ref;
-        //map.addLayer(this.ref.ref);
     }
     remove() {
         //map.removeLayer(this.ref.ref);

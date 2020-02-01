@@ -4,35 +4,41 @@ import { ILayer } from './ILayer';
 
 class Map implements IMap {
     ref: any;
+    layers: Array<ILayer>;
     create(id: string, options) {
         this.ref = L.map(id, options);
         return id;
     }    
-    destroy(ref:any) {
+    destroy(ref:any): boolean {
         try{
             this.ref.remove();
             return true;
         } catch(e){
-            return false;
+            throw new Error(e);
         }        
     }
-    addLayer(layer: ILayer): ILayer {
-        this.ref.addLayer(layer.ref);
-        return null;
+    addLayer(layer: ILayer): boolean {
+        try {
+            this.ref.addLayer(layer.ref);
+            this.layers.push(layer);
+            return true;
+        }catch(e){
+            throw new Error(e);
+        }
     }
     removeLayer(layer: ILayer): boolean {
         try {
             this.ref.removeLayer(layer.ref);
             return true;
         } catch(e) {
-            return false;
+            throw new Error(e);
         }
     }
-    addLayers(layers: Array<ILayer>): Array<ILayer>  {
+    addLayers(layers: Array<ILayer>):boolean  {
         return null;
     }
     
-    removeLayers(layers: Array<ILayer>): Array<boolean>{
+    removeLayers(layers: Array<ILayer>): boolean{
         return null;
     }
     
@@ -40,7 +46,7 @@ class Map implements IMap {
         return null;
     }
     
-    refreshLayers(layers: Array<ILayer>) : Array<boolean>{
+    refreshLayers(layers: Array<ILayer>) :boolean{
         return null;
     }
     
