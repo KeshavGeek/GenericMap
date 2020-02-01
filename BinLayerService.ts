@@ -2,7 +2,6 @@ import {Circle} from './Circle';
 import { CircleLayerService } from './CircleLayerService';
 import { IResponse } from './IResponse';
 import { ILayer } from './ILayer';
-import { map } from 'leaflet';
 
 class BinLayerService {
     private ref: ILayer;
