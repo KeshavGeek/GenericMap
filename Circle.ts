@@ -6,7 +6,7 @@ import * as L from 'leaflet';
 
 export class Circle implements ICircle{
     id: number;
-    ref: L.Circle<any>;
+    ref: L.Circle;
     options: IOptions;
     create(latLngs: ILatLng, options: IOptions): ILayer {
         this.ref = L.circle([latLngs.latitude, latLngs.longitude], options);

@@ -8,6 +8,7 @@ import { GCircle } from './GCircle';
 import * as L from 'leaflet';
 import { MapEvent } from './Event';
 import { Circle } from './Circle';
+import {Util} from './Util';
 
 class LeafletApplication {
     initialize() {
@@ -110,3 +111,30 @@ const app4 = new MapTalksMapApplication();
 app4.initialize();
 const app5 = new OpenLayersMapApplication();
 app5.initialize();
+
+
+/**For Testing Purpose Only */
+
+const target = {
+    id: 1,
+    otherKey: {},
+    params: {
+        page: {
+            a: 1,
+            b: {}
+        },
+        data: {
+            b: 1
+        }
+    }
+}
+
+const b = {
+    params: {
+        page: {
+            a: 2
+        }
+    }
+}
+console.log(target,b);
+console.log(Util.mergeDeep(target, b));
