@@ -1,6 +1,7 @@
 import { IMap } from './IMap';
 import { ILayer } from './ILayer';
 import mapboxgl from 'mapbox-gl';
+import { MapEvent } from './Event';
 
 export class MBMap implements IMap {
     ref: any;
@@ -26,6 +27,11 @@ export class MBMap implements IMap {
     }
     setView() {
 
+    }
+    addEvent(mapEvent: MapEvent, fn: Function): any {
+        console.log(mapEvent);
+
+        this.ref.on(mapEvent, fn);
     }
     addLayer(layer: ILayer): boolean {
         try {

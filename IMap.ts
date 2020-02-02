@@ -1,4 +1,5 @@
 import { ILayer } from "./ILayer";
+import {MapEvent} from './Event';
 
 export interface IMap {
     ref: any;
@@ -11,6 +12,7 @@ export interface IMap {
     removeLayers(layers: Array<ILayer>): boolean;
     refreshLayer(layer: ILayer): boolean;
     refreshLayers(layers: Array<ILayer>): boolean;
+    addEvent(mapEvents: MapEvent, fn: Function): any;
     //show()
     //hide()    
 }

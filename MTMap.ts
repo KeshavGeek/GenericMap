@@ -1,5 +1,6 @@
 import { IMap } from './IMap';
 import { ILayer } from './ILayer';
+import { MapEvent } from './Event';
 var maptalks = require('maptalks/dist/maptalks.min.js');
 
 export class MTMap implements IMap {
@@ -27,6 +28,11 @@ export class MTMap implements IMap {
     }
     setView() {
 
+    }
+    addEvent(mapEvent: MapEvent, fn: Function): any {
+        console.log(mapEvent);
+
+        this.ref.on(mapEvent, fn);
     }
     addLayer(layer: ILayer): boolean {
         try {

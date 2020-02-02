@@ -1,6 +1,7 @@
 import {IMap} from './IMap';
 import * as L from 'leaflet';
 import { ILayer } from './ILayer';
+import { MapEvent } from './Event';
 
 export class Map implements IMap {
     ref: any;
@@ -20,6 +21,13 @@ export class Map implements IMap {
     }
     setView() {
 
+    }
+    addEvent(mapEvent: MapEvent, fn: Function) : any{
+        return this.ref.on(mapEvent, fn);
+    }
+    removeEvent(mapEvent: MapEvent, fn: Function): boolean{
+        this.ref.off(mapEvent, fn);
+        return true
     }
     addLayer(layer: ILayer): boolean {
         try {

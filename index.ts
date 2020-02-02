@@ -6,6 +6,7 @@ import { OLMap } from './OLMap';
 import { BinLayerService } from './BinLayerService';
 import { GCircle } from './GCircle';
 import * as L from 'leaflet';
+import { MapEvent } from './Event';
 
 class LeafletApplication {
     initialize() {
@@ -17,7 +18,17 @@ class LeafletApplication {
         let binLayerService = new BinLayerService()       
         let ref = binLayerService.add([[51.505, -0.09], [51.515, -0.09]],{visual: {radius: 200}, property : {latitudeIndex: 0, longitudeIndex: 1}});
         map.addLayer(ref);
+        let fn: Function = function () {
+            console.log("Everyting Working");
+        };
+        map.addEvent(MapEvent.CLICK,fn);
         map.addLayer({ref:L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")});
+
+        const ele:HTMLElement = document.getElementById("map-click-off");
+        ele.onclick = function() {
+            console.log("Removing Map Event");
+            map.removeEvent(MapEvent.CLICK,fn);
+        }
     }
 }
 

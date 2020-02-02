@@ -3,6 +3,7 @@ import { ILayer } from './ILayer';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { MapEvent } from './Event';
 
 export class OLMap implements IMap {
     ref: any;
@@ -33,6 +34,11 @@ export class OLMap implements IMap {
     }
     setView() {
 
+    }
+    addEvent(mapEvent: MapEvent, fn: Function): any {
+        console.log(mapEvent);
+
+        this.ref.on(mapEvent, fn);
     }
     addLayer(layer: ILayer): boolean {
         try {
