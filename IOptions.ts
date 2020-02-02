@@ -4,4 +4,7 @@ export interface IOptions {
     fontFamily?: string;
     radius?: number;
     fillColor?: string;
+    opacity?: number;
+    color?: string;
+    fillOpacity?: number;
 }

@@ -19,11 +19,20 @@
 				font-size: 20px;
 				font-weight: bold;
 			}
+			#layer-opacity-change {
+				width: 50%;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="map-lib-name">Leaflet
 			<button id="map-click-off">Click Me To Off Map Click Event</button>
+			<select id="layer-color-change">
+				<option value="blue">BLUE</option>
+				<option value="red">RED</option>
+				<option value="green">GREEN</option>
+			</select>
+			<input id="layer-opacity-change" type="range" min="0" max="1" step="0.01" value="0.5"/>
 		</div>
 		<div id="my-map"></div>
 		<div class="space map-lib-name">Google</div>

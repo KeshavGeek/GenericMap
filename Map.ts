@@ -29,6 +29,24 @@ export class Map implements IMap {
         this.ref.off(mapEvent, fn);
         return true
     }
+    addControl(){
+
+    }
+    removeControl(){
+
+    }
+    addFilter(){
+        //Useless Method As Of Now
+    }
+    addFilterToLayer(){
+
+    }
+    removeFilterFromLayer(){
+
+    }
+    applyFilterToLayer(){
+        
+    }
     addLayer(layer: ILayer): boolean {
         try {
             this.ref.addLayer(layer.ref);
